@@ -14,6 +14,9 @@ echo instalando RVM
 # Instala las llaves públicas de RVM
 sudo apt-key adv –keyserver keyserver.ubuntu.com –recv-keys EBB4CCF6A72BC110
 gpg --keyserver keyserver.ubuntu.com --recv EBB4CCF6A72BC110
+# nuevas llaves
+command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
+command curl -sSL https://rvm.io/pkuczynski.asc | gpg --import -
 #Instala la última versión estable de RVM
 \curl -sSL https://get.rvm.io | bash -s stable
 # source /home/vagrant/.rvm/scripts/rvm
@@ -30,8 +33,6 @@ echo versiones de ruby
 echo instalando Ruby
 rvm install 3.0.2
 rvm use 3.0.2 --default
-echo version instalada
-ruby -v
 # instalar Bundler y Rails
 echo instalando Bundler and Rails
 gem install bundler --no-document
@@ -39,4 +40,7 @@ gem install rails -v 6.1.4 --no-document
 # instalar postgres y sus dependencais
 #echo instalando psql y sus dependencias
 sudo apt-get install -y postgresql postgresql-contrib libpq-dev
+echo version instalada
+ruby -v
+rails -v
 echo 'all set, rock on!'
